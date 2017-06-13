@@ -3,14 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Partial Content</title>
+  <title>Using Falco to secure Docker containers | Partial Content</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Partial Content">
-<meta property="og:url" content="https://http206.com/index.html">
+  <meta name="description" content="I’ve been looking for an excuse to use Sysdig since I first heard about it at a bsides BOS conference a couple of years ago. This came to a head recently while at DockerCon in Seattle.
+While there I h">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Using Falco to secure Docker containers">
+<meta property="og:url" content="https://http206.com/2016/07/01/Using-Falco-to-secure-Docker-containers/index.html">
 <meta property="og:site_name" content="Partial Content">
+<meta property="og:description" content="I’ve been looking for an excuse to use Sysdig since I first heard about it at a bsides BOS conference a couple of years ago. This came to a head recently while at DockerCon in Seattle.
+While there I h">
+<meta property="og:updated_time" content="2016-07-02T02:39:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Partial Content">
+<meta name="twitter:title" content="Using Falco to secure Docker containers">
+<meta name="twitter:description" content="I’ve been looking for an excuse to use Sysdig since I first heard about it at a bsides BOS conference a couple of years ago. This came to a head recently while at DockerCon in Seattle.
+While there I h">
 <meta name="twitter:creator" content="@http206">
   
     <link rel="alternative" href="/atom.xml" title="Partial Content" type="application/atom+xml">
@@ -36,101 +43,21 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 
 
-<style type="text/css">#container,#wrap,body,html{height:100%}#wrap,body{width:100%;background:#fff}#wrap,.article-inner,body{background:#fff}.article-entry:after,.article-entry:before,.article-meta:after,.article-meta:before,.outer:after,.outer:before,body:after,body:before{content:"";display:table}.article-entry:after,.article-meta:after,.outer:after,body:after{clear:both}a,body,div,h1,html,img,li,p,ul{margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;font-family:inherit;font-size:100%;vertical-align:baseline}body{line-height:1;color:#000;font:14px "Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%}ul{list-style:none}#container{position:relative}#wrap{position:absolute;top:0;left:0;z-index:1}.outer{max-width:920px;margin:0 auto;padding:0 20px}@media screen and (min-width:768px){#main{width:768px;padding-right:50px;margin:0 auto}}::-webkit-scrollbar{width:0}.article-date{text-decoration:none;color:#999;line-height:1em;float:left}.article-inner{overflow:hidden}.article-entry ul{margin:0 20px;line-height:1.6em}.article-entry ul ul{margin-top:0;margin-bottom:0}.article{margin:50px 0;border-bottom:1px dashed #d9d9d9;text-align:justify}.article-header{padding:20px 0}.article-title{text-decoration:none;font-size:1.8em;font-weight:700;color:#555;line-height:1.1em}.article-entry{color:#555;padding:0 0 20px}.article-entry p{line-height:1.6em;margin:1.6em 0}.article-entry ul{list-style:disc;margin-top:1.6em;margin-bottom:1.6em}.article-entry img{max-width:100%;height:auto;display:block;margin:auto}@media screen and (max-width:479px){#mobile-nav{position:absolute;top:0;left:0;width:100%;height:45px;background:#2a2a2a;z-index:999}.mobile-nav-link{float:left;color:#fff;text-decoration:none;text-align:center;line-height:45px;padding:0 20px}}@media screen and (min-width:480px) and (max-width:767px){#mobile-nav{position:absolute;top:0;left:0;width:100%;height:45px;background:#2a2a2a;z-index:999}.mobile-nav-link{float:left;color:#fff;text-decoration:none;text-align:center;line-height:45px;padding:0 20px}}#sidebar{display:none}@media screen and (min-width:768px){#sidebar .menus ul li a i.icon,#sidebar a#go-top i.icon{font-family:FontAwesome!important;font-style:normal;-webkit-font-smoothing:antialiased;-webkit-text-stroke-width:.2px;-moz-osx-font-smoothing:grayscale;font-size:20px}#sidebar{display:block;position:fixed;right:0;top:0;width:50px;height:100%;background:#2a2a2a}#sidebar .menus ul li a,#sidebar a#go-top{width:50px;height:50px;text-align:center;line-height:50px;text-decoration:none;color:#fff}#sidebar a#go-top{position:absolute;bottom:10px;left:0}#sidebar a#go-top i.icon.icon-up:before{content:"\f062"}#sidebar .menus{padding-top:10px}#sidebar .menus ul li a{display:block;margin-bottom:5px}#sidebar .menus ul li a i.icon.icon-home:before{content:"\f015"}#sidebar .menus ul li a i.icon.icon-archive:before{content:"\f187"}#sidebar .menus ul li a i.icon.icon-tag:before{content:"\f02c"}#sidebar .menus ul li a i.icon.icon-about:before{content:"\f128"}#sidebar .menus ul li a i.icon.icon-git:before{content:"\f09b"}}</style></head>
+<style type="text/css">#container,#wrap,body,html{height:100%}#wrap,body{width:100%}#wrap,.article-inner,body{background:#fff}.article-entry:after,.article-entry:before,.article-meta:after,.article-meta:before,.outer:after,.outer:before,body:after,body:before{content:"";display:table}.article-entry:after,.article-meta:after,.outer:after,body:after{clear:both}a,body,div,h1,html,li,p,pre,span,table,tbody,td,tr,ul{margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;font-family:inherit;font-size:100%;vertical-align:baseline}table,td{vertical-align:middle}ul{list-style:none}table{border-collapse:separate;border-spacing:0}td{text-align:left;font-weight:400}body{line-height:1;color:#000;font:14px "Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%}#container{position:relative}#wrap{position:absolute;top:0;left:0;z-index:1}.outer{max-width:920px;margin:0 auto;padding:0 20px}@media screen and (min-width:768px){#main{width:768px;padding-right:50px;margin:0 auto}}::-webkit-scrollbar{width:0}.article-date{text-decoration:none;color:#999;line-height:1em;float:left}.article-inner{overflow:hidden}.article{margin:50px 0;border-bottom:1px dashed #d9d9d9;text-align:justify}.article-header{padding:20px 0}.article-title{text-decoration:none;font-size:1.8em;font-weight:700;color:#555;line-height:1.1em}.article-entry{color:#555;padding:0 0 20px}.article-entry p,.article-entry table{line-height:1.6em;margin:1.6em 0}.article-entry a{color:#991a1a;text-decoration:none}.article-entry table{width:100%;border-collapse:collapse;border-spacing:0}.article-entry td{border-bottom:1px solid #ddd;padding:10px 0}.article-entry .highlight,.article-entry pre{-webkit-border-radius:4px;border-radius:4px;background:#f7f7f7;margin:0 -10px;padding:10px;overflow:auto;color:#666;line-height:22.4px}.article-entry pre{font-family:"Source Code Pro",Consolas,Monaco,Menlo,Consolas,monospace}.article-entry .highlight pre{border:none;margin:0;padding:0}.article-entry .highlight table{margin:0;width:auto}.article-entry .highlight td{border:none;padding:0}.article-entry .highlight .gutter pre{color:#666;font-size:.85em;text-align:right;padding:0 10px;border-right:1px solid #ddd;margin-right:10px;-webkit-border-radius:0;border-radius:0}.article-entry .highlight .line{height:22.4px}pre .string{color:#9c9}@media screen and (max-width:479px){#mobile-nav{position:absolute;top:0;left:0;width:100%;height:45px;background:#2a2a2a;z-index:999}.mobile-nav-link{float:left;color:#fff;text-decoration:none;text-align:center;line-height:45px;padding:0 20px}}@media screen and (min-width:480px) and (max-width:767px){#mobile-nav{position:absolute;top:0;left:0;width:100%;height:45px;background:#2a2a2a;z-index:999}.mobile-nav-link{float:left;color:#fff;text-decoration:none;text-align:center;line-height:45px;padding:0 20px}}#sidebar{display:none}@media screen and (min-width:768px){#sidebar .menus ul li a i.icon,#sidebar a#go-top i.icon{font-family:FontAwesome!important;font-style:normal;-webkit-font-smoothing:antialiased;-webkit-text-stroke-width:.2px;-moz-osx-font-smoothing:grayscale;font-size:20px}#sidebar{display:block;position:fixed;right:0;top:0;width:50px;height:100%;background:#2a2a2a}#sidebar .menus ul li a,#sidebar a#go-top{width:50px;height:50px;text-align:center;line-height:50px;text-decoration:none;color:#fff}#sidebar a#go-top{position:absolute;bottom:10px;left:0}#sidebar a#go-top i.icon.icon-up:before{content:"\f062"}#sidebar .menus{padding-top:10px}#sidebar .menus ul li a{display:block;margin-bottom:5px}#sidebar .menus ul li a i.icon.icon-home:before{content:"\f015"}#sidebar .menus ul li a i.icon.icon-archive:before{content:"\f187"}#sidebar .menus ul li a i.icon.icon-tag:before{content:"\f02c"}#sidebar .menus ul li a i.icon.icon-about:before{content:"\f128"}#sidebar .menus ul li a i.icon.icon-git:before{content:"\f09b"}}</style></head>
 
 <body>
   <div id="container">
     <div id="wrap">
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Scalable-logging-infrastructure" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Using-Falco-to-secure-Docker-containers" class="article article-type-post" itemscope itemprop="blogPost">
 
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/28/Scalable-logging-infrastructure/">Scalable logging infrastructure</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2017/03/28/Scalable-logging-infrastructure/" class="article-date">
-  <time datetime="2017-03-29T01:00:45.000Z" itemprop="datePublished">2017-03-28</time>
-</a>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>For any OPs team one of the goals is to deploy services with as little operational overhead as possible. This means designing infrastructure that is resilient and self-healing. Recently I had an opportunity to apply these principles to part of $EMPLOYERS core internal services; our logging stack.</p>
-<p>The first part of the task was to identify what properties we required of this system:</p>
-<ul>
-<li>Scalable<ul>
-<li>Being logging infrastructure this system needed to support high volumes of ingest data as well as querying data at rest.</li>
-</ul>
-</li>
-<li>Highly Available<ul>
-<li>We should be at least able to queue logs to later ingest if some part of the system isn’t working.</li>
-</ul>
-</li>
-<li>Resilient storage<ul>
-<li>Some logs, like security logs, we may need to keep for long periods of time in a secure manner.</li>
-</ul>
-</li>
-<li>Low operational overhead<ul>
-<li>Though we need this system to be available we don’t want to spent to much time keeping it running.</li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/logging.png" alt=""></p>
-<p>This is what we ended up with:</p>
-<ul>
-<li>Ingest<ul>
-<li><a href="https://aws.amazon.com/kinesis/" target="_blank" rel="external">AWS Kinesis</a></li>
-</ul>
-</li>
-<li>Processing<ul>
-<li><a href="https://www.elastic.co/products/logstash" target="_blank" rel="external">Logstash</a> running on <a href="https://aws.amazon.com/ecs/" target="_blank" rel="external">AWS ECS</a></li>
-</ul>
-</li>
-<li>Storage<ul>
-<li><a href="https://aws.amazon.com/s3/" target="_blank" rel="external">AWS S3</a></li>
-<li><a href="https://aws.amazon.com/elasticsearch-service/" target="_blank" rel="external">AWS ElasticSearch Service</a></li>
-</ul>
-</li>
-<li>Interface<ul>
-<li><a href="https://www.elastic.co/products/kibana" target="_blank" rel="external">Kibana</a> (built into the ElasticSearch Service)</li>
-</ul>
-</li>
-</ul>
-<p>This gives us all of the features we are looking for. Within reasonable limits all of these components are scalable to very large data volumes. By running ECS cluster on top of an ASG spread across AZs we have a high degree of availability for all components. S3, as we all know, has a somewhat absurd number of 9s around data durability and we can leverage versioning, access logs as well as encryption at rest to ensure data integrity. Kinesis was the newest piece to me, highly scalable and fast, I think it will be core to similar infrastructures for me in the future.</p>
-<p>All of this was of course rolled up into a reusable <a href="https://www.terraform.io/" target="_blank" rel="external">Terraform</a> module. This allows our team to roll this out for different environments in a reproducible manner.</p>
-
-      
-
-      
-
-    </div>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Using-Falco-to-secure-Docker-containers" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/01/Using-Falco-to-secure-Docker-containers/">Using Falco to secure Docker containers</a>
+    <h1 class="article-title" itemprop="name">
+      Using Falco to secure Docker containers
     </h1>
   
 
@@ -163,12 +90,43 @@ ga('send', 'pageview');
     </div>
   </div>
   
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/28/Scalable-logging-infrastructure/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Scalable logging infrastructure
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
 </article>
 
 
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
 
-  
-  
+        s.src = '//http206.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>
+    Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+</section>
+
 </section>
         <aside id="sidebar">
   <nav class="menus">
@@ -213,11 +171,13 @@ ga('send', 'pageview');
 <script>
   var disqus_shortname = 'http206';
   
+  var disqus_url = 'https://http206.com/2016/07/01/Using-Falco-to-secure-Docker-containers/';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>

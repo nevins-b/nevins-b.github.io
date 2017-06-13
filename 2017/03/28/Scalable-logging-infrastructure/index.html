@@ -3,14 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Partial Content</title>
+  <title>Scalable logging infrastructure | Partial Content</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Partial Content">
-<meta property="og:url" content="https://http206.com/index.html">
+  <meta name="description" content="For any OPs team one of the goals is to deploy services with as little operational overhead as possible. This means designing infrastructure that is resilient and self-healing. Recently I had an oppor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scalable logging infrastructure">
+<meta property="og:url" content="https://http206.com/2017/03/28/Scalable-logging-infrastructure/index.html">
 <meta property="og:site_name" content="Partial Content">
+<meta property="og:description" content="For any OPs team one of the goals is to deploy services with as little operational overhead as possible. This means designing infrastructure that is resilient and self-healing. Recently I had an oppor">
+<meta property="og:image" content="https://http206.com/images/logging.png">
+<meta property="og:updated_time" content="2017-03-29T01:41:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Partial Content">
+<meta name="twitter:title" content="Scalable logging infrastructure">
+<meta name="twitter:description" content="For any OPs team one of the goals is to deploy services with as little operational overhead as possible. This means designing infrastructure that is resilient and self-healing. Recently I had an oppor">
+<meta name="twitter:image" content="https://http206.com/images/logging.png">
 <meta name="twitter:creator" content="@http206">
   
     <link rel="alternative" href="/atom.xml" title="Partial Content" type="application/atom+xml">
@@ -42,17 +48,15 @@ ga('send', 'pageview');
   <div id="container">
     <div id="wrap">
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Scalable-logging-infrastructure" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Scalable-logging-infrastructure" class="article article-type-post" itemscope itemprop="blogPost">
 
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/28/Scalable-logging-infrastructure/">Scalable logging infrastructure</a>
+    <h1 class="article-title" itemprop="name">
+      Scalable logging infrastructure
     </h1>
   
 
@@ -117,58 +121,39 @@ ga('send', 'pageview');
     </div>
   </div>
   
-</article>
-
-
-
-  
-    <article id="post-Using-Falco-to-secure-Docker-containers" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <div class="article-inner">
     
-      <header class="article-header">
-        
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/01/Using-Falco-to-secure-Docker-containers/">Using Falco to secure Docker containers</a>
-    </h1>
   
+    <a href="/2016/07/01/Using-Falco-to-secure-Docker-containers/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Using Falco to secure Docker containers</div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2016/07/01/Using-Falco-to-secure-Docker-containers/" class="article-date">
-  <time datetime="2016-07-02T01:28:56.000Z" itemprop="datePublished">2016-07-01</time>
-</a>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>I’ve been looking for an excuse to use <a href="http://www.sysdig.org/" target="_blank" rel="external">Sysdig</a> since I first heard about it at a bsides BOS conference a couple of years ago. This came to a head recently while at <a href="http://2016.dockercon.com/" target="_blank" rel="external">DockerCon</a> in Seattle.</p>
-<p>While there I had a chance to look at the new Sysdig monitoring for Docker which is pretty damn cool. The more interesting piece though was their newly opensourced tool <a href="http://www.sysdig.org/falco/" target="_blank" rel="external">Falco</a>. Falco, in a nut shell, lets to create rules that will monitor for and alert on basically anything that is happening on your linux system. So now I needed to find a reason to use it.</p>
-<p>This brings us back to Docker. The security of Docker is something that is very interesting to me. One feature which I’ve looked at before but always had a hard time figuring out how to use well is <a href="https://github.com/docker/docker/blob/master/docs/security/seccomp.md" target="_blank" rel="external">Seccomp</a>. Seccomp profiles with Docker allow you to limit what syscalls your Docker container is allowed to make to the underlying system. By default Docker disables about 40 out of 300 syscalls. That’s pretty good, but lets see if we can leverage Falco to do better.</p>
-<p>Let’s start with Falco. Falco is container aware which means we can create a rule really simply.<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="attr">- rule:</span> container_syscall</div><div class="line"><span class="attr">  desc:</span> Capture syscalls for any docker container</div><div class="line"><span class="attr">  priority:</span> WARNING</div><div class="line"><span class="attr">  condition:</span> container.id != host and syscall.type exists</div><div class="line"><span class="attr">  output:</span> <span class="string">"%container.id:%syscall.type"</span></div></pre></td></tr></table></figure></p>
-<p>This rule simply states, if you see a container making a syscall log the container’s id and the syscall that is being made. With that rule in place, and Falco configured to log JSON, we can start the Falco daemon and running a Nginx Docker container gives us the following output:</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="attr">"output"</span>:<span class="string">"15:07:59.736531417: Warning 7a68a113b2a4:clone"</span>,<span class="attr">"priority"</span>:<span class="string">"Warning"</span>,<span class="attr">"rule"</span>:<span class="string">"container_syscall"</span>,<span class="attr">"time"</span>:<span class="string">"2016-07-01T19:07:59.736531417Z"</span>&#125;</div><div class="line">&#123;<span class="attr">"output"</span>:<span class="string">"15:07:59.736536327: Warning 7a68a113b2a4:set_robust_list"</span>,<span class="attr">"priority"</span>:<span class="string">"Warning"</span>,<span class="attr">"rule"</span>:<span class="string">"container_syscall"</span>,<span class="attr">"time"</span>:<span class="string">"2016-07-01T19:07:59.736536327Z"</span>&#125;</div><div class="line">&#123;<span class="attr">"output"</span>:<span class="string">"15:07:59.736536539: Warning 7a68a113b2a4:set_robust_list"</span>,<span class="attr">"priority"</span>:<span class="string">"Warning"</span>,<span class="attr">"rule"</span>:<span class="string">"container_syscall"</span>,<span class="attr">"time"</span>:<span class="string">"2016-07-01T19:07:59.736536539Z"</span>&#125;</div></pre></td></tr></table></figure>
-<p>That’s awesome! We now have a log of all the syscalls being made by that Docker container. So what do we do with this?</p>
-<p>To help with this task I’ve released <a href="https://github.com/nevins-b/falco2seccomp" target="_blank" rel="external">falco2seccomp</a>. This is a pretty simple Go project written to parse the output from Falco and generate a ready to go seccomp profile. Here’s example usage:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">falco2seccomp -log events.log -container-id 7a68a113b2a4</div><div class="line">&#123;</div><div class="line">    &quot;defaultAction&quot;: &quot;SCMP_ACT_ERRNO&quot;,</div><div class="line">    &quot;architectures&quot;: [</div><div class="line">        &quot;SCMP_ARCH_X86_64&quot;,</div><div class="line">        &quot;SCMP_ARCH_X86&quot;</div><div class="line">    ],</div><div class="line">    &quot;syscalls&quot;: [</div><div class="line">        &#123;</div><div class="line">            &quot;name&quot;: &quot;set_robust_list&quot;,</div><div class="line">            &quot;action&quot;: &quot;SCMP_ACT_ALLOW&quot;,</div><div class="line">            &quot;args&quot;: []</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            &quot;name&quot;: &quot;gettid&quot;,</div><div class="line">            &quot;action&quot;: &quot;SCMP_ACT_ALLOW&quot;,</div><div class="line">            &quot;args&quot;: []</div><div class="line">        &#125;,</div><div class="line">        ...</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>This is a ready to use out of the box seccomp profile for our nginx container, limited to just the syscalls we actually saw the container using. Instead of blacklisting 40 syscalls, we’re only allowing 41. Again, awesome.</p>
-<p>So how can you use this in the real world? One thought would be to integrate it into a CI/CD pipeline. If your builds are being done in a Docker container your tests should be exercising your code enough to generate the full list of syscalls required. boom.</p>
-
-      
-
-      
-
-    </div>
-  </div>
   
 </article>
 
 
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
 
-  
-  
+        s.src = '//http206.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>
+    Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+</section>
+
 </section>
         <aside id="sidebar">
   <nav class="menus">
@@ -213,11 +198,13 @@ ga('send', 'pageview');
 <script>
   var disqus_shortname = 'http206';
   
+  var disqus_url = 'https://http206.com/2017/03/28/Scalable-logging-infrastructure/';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>

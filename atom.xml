@@ -1,72 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
   <title>Partial Content</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Partial Content">
-<meta property="og:url" content="https://http206.com/index.html">
-<meta property="og:site_name" content="Partial Content">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Partial Content">
-<meta name="twitter:creator" content="@http206">
   
-    <link rel="alternative" href="/atom.xml" title="Partial Content" type="application/atom+xml">
+  <link href="/atom.xml" rel="self"/>
   
+  <link href="https://http206.com/"/>
+  <updated>2017-03-29T01:41:39.000Z</updated>
+  <id>https://http206.com/</id>
   
-    <link rel="icon" href="/favicon.ico">
-  
-  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css">
-  
-<!-- Google Analytics -->
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-33814773-2', 'auto');
-ga('require', 'linkid');
-ga('send', 'pageview');
-
-</script>
-<!-- End Google Analytics -->
-
-
-<style type="text/css">#container,#wrap,body,html{height:100%}#wrap,body{width:100%;background:#fff}#wrap,.article-inner,body{background:#fff}.article-entry:after,.article-entry:before,.article-meta:after,.article-meta:before,.outer:after,.outer:before,body:after,body:before{content:"";display:table}.article-entry:after,.article-meta:after,.outer:after,body:after{clear:both}a,body,div,h1,html,img,li,p,ul{margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;font-family:inherit;font-size:100%;vertical-align:baseline}body{line-height:1;color:#000;font:14px "Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%}ul{list-style:none}#container{position:relative}#wrap{position:absolute;top:0;left:0;z-index:1}.outer{max-width:920px;margin:0 auto;padding:0 20px}@media screen and (min-width:768px){#main{width:768px;padding-right:50px;margin:0 auto}}::-webkit-scrollbar{width:0}.article-date{text-decoration:none;color:#999;line-height:1em;float:left}.article-inner{overflow:hidden}.article-entry ul{margin:0 20px;line-height:1.6em}.article-entry ul ul{margin-top:0;margin-bottom:0}.article{margin:50px 0;border-bottom:1px dashed #d9d9d9;text-align:justify}.article-header{padding:20px 0}.article-title{text-decoration:none;font-size:1.8em;font-weight:700;color:#555;line-height:1.1em}.article-entry{color:#555;padding:0 0 20px}.article-entry p{line-height:1.6em;margin:1.6em 0}.article-entry ul{list-style:disc;margin-top:1.6em;margin-bottom:1.6em}.article-entry img{max-width:100%;height:auto;display:block;margin:auto}@media screen and (max-width:479px){#mobile-nav{position:absolute;top:0;left:0;width:100%;height:45px;background:#2a2a2a;z-index:999}.mobile-nav-link{float:left;color:#fff;text-decoration:none;text-align:center;line-height:45px;padding:0 20px}}@media screen and (min-width:480px) and (max-width:767px){#mobile-nav{position:absolute;top:0;left:0;width:100%;height:45px;background:#2a2a2a;z-index:999}.mobile-nav-link{float:left;color:#fff;text-decoration:none;text-align:center;line-height:45px;padding:0 20px}}#sidebar{display:none}@media screen and (min-width:768px){#sidebar .menus ul li a i.icon,#sidebar a#go-top i.icon{font-family:FontAwesome!important;font-style:normal;-webkit-font-smoothing:antialiased;-webkit-text-stroke-width:.2px;-moz-osx-font-smoothing:grayscale;font-size:20px}#sidebar{display:block;position:fixed;right:0;top:0;width:50px;height:100%;background:#2a2a2a}#sidebar .menus ul li a,#sidebar a#go-top{width:50px;height:50px;text-align:center;line-height:50px;text-decoration:none;color:#fff}#sidebar a#go-top{position:absolute;bottom:10px;left:0}#sidebar a#go-top i.icon.icon-up:before{content:"\f062"}#sidebar .menus{padding-top:10px}#sidebar .menus ul li a{display:block;margin-bottom:5px}#sidebar .menus ul li a i.icon.icon-home:before{content:"\f015"}#sidebar .menus ul li a i.icon.icon-archive:before{content:"\f187"}#sidebar .menus ul li a i.icon.icon-tag:before{content:"\f02c"}#sidebar .menus ul li a i.icon.icon-about:before{content:"\f128"}#sidebar .menus ul li a i.icon.icon-git:before{content:"\f09b"}}</style></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-Scalable-logging-infrastructure" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <div class="article-inner">
+  <author>
+    <name>Nevins</name>
     
-      <header class="article-header">
-        
+  </author>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/28/Scalable-logging-infrastructure/">Scalable logging infrastructure</a>
-    </h1>
+  <generator uri="http://hexo.io/">Hexo</generator>
   
-
-      </header>
+  <entry>
+    <title>Scalable logging infrastructure</title>
+    <link href="https://http206.com/2017/03/28/Scalable-logging-infrastructure/"/>
+    <id>https://http206.com/2017/03/28/Scalable-logging-infrastructure/</id>
+    <published>2017-03-29T01:00:45.000Z</published>
+    <updated>2017-03-29T01:41:39.000Z</updated>
     
-    <div class="article-meta">
-      <a href="/2017/03/28/Scalable-logging-infrastructure/" class="article-date">
-  <time datetime="2017-03-29T01:00:45.000Z" itemprop="datePublished">2017-03-28</time>
-</a>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>For any OPs team one of the goals is to deploy services with as little operational overhead as possible. This means designing infrastructure that is resilient and self-healing. Recently I had an opportunity to apply these principles to part of $EMPLOYERS core internal services; our logging stack.</p>
+    <content type="html"><![CDATA[<p>For any OPs team one of the goals is to deploy services with as little operational overhead as possible. This means designing infrastructure that is resilient and self-healing. Recently I had an opportunity to apply these principles to part of $EMPLOYERS core internal services; our logging stack.</p>
 <p>The first part of the task was to identify what properties we required of this system:</p>
 <ul>
 <li>Scalable<ul>
@@ -109,42 +65,29 @@ ga('send', 'pageview');
 </ul>
 <p>This gives us all of the features we are looking for. Within reasonable limits all of these components are scalable to very large data volumes. By running ECS cluster on top of an ASG spread across AZs we have a high degree of availability for all components. S3, as we all know, has a somewhat absurd number of 9s around data durability and we can leverage versioning, access logs as well as encryption at rest to ensure data integrity. Kinesis was the newest piece to me, highly scalable and fast, I think it will be core to similar infrastructures for me in the future.</p>
 <p>All of this was of course rolled up into a reusable <a href="https://www.terraform.io/" target="_blank" rel="external">Terraform</a> module. This allows our team to roll this out for different environments in a reproducible manner.</p>
-
-      
-
-      
-
-    </div>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Using-Falco-to-secure-Docker-containers" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <div class="article-inner">
+]]></content>
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/01/Using-Falco-to-secure-Docker-containers/">Using Falco to secure Docker containers</a>
-    </h1>
-  
-
-      </header>
+    <summary type="html">
     
-    <div class="article-meta">
-      <a href="/2016/07/01/Using-Falco-to-secure-Docker-containers/" class="article-date">
-  <time datetime="2016-07-02T01:28:56.000Z" itemprop="datePublished">2016-07-01</time>
-</a>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>I’ve been looking for an excuse to use <a href="http://www.sysdig.org/" target="_blank" rel="external">Sysdig</a> since I first heard about it at a bsides BOS conference a couple of years ago. This came to a head recently while at <a href="http://2016.dockercon.com/" target="_blank" rel="external">DockerCon</a> in Seattle.</p>
+      &lt;p&gt;For any OPs team one of the goals is to deploy services with as little operational overhead as possible. This means designing infrastruct
+    
+    </summary>
+    
+    
+      <category term="AWS" scheme="https://http206.com/tags/AWS/"/>
+    
+      <category term="Logging" scheme="https://http206.com/tags/Logging/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Using Falco to secure Docker containers</title>
+    <link href="https://http206.com/2016/07/01/Using-Falco-to-secure-Docker-containers/"/>
+    <id>https://http206.com/2016/07/01/Using-Falco-to-secure-Docker-containers/</id>
+    <published>2016-07-02T01:28:56.000Z</published>
+    <updated>2016-07-02T02:39:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>I’ve been looking for an excuse to use <a href="http://www.sysdig.org/" target="_blank" rel="external">Sysdig</a> since I first heard about it at a bsides BOS conference a couple of years ago. This came to a head recently while at <a href="http://2016.dockercon.com/" target="_blank" rel="external">DockerCon</a> in Seattle.</p>
 <p>While there I had a chance to look at the new Sysdig monitoring for Docker which is pretty damn cool. The more interesting piece though was their newly opensourced tool <a href="http://www.sysdig.org/falco/" target="_blank" rel="external">Falco</a>. Falco, in a nut shell, lets to create rules that will monitor for and alert on basically anything that is happening on your linux system. So now I needed to find a reason to use it.</p>
 <p>This brings us back to Docker. The security of Docker is something that is very interesting to me. One feature which I’ve looked at before but always had a hard time figuring out how to use well is <a href="https://github.com/docker/docker/blob/master/docs/security/seccomp.md" target="_blank" rel="external">Seccomp</a>. Seccomp profiles with Docker allow you to limit what syscalls your Docker container is allowed to make to the underlying system. By default Docker disables about 40 out of 300 syscalls. That’s pretty good, but lets see if we can leverage Falco to do better.</p>
 <p>Let’s start with Falco. Falco is container aware which means we can create a rule really simply.<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="attr">- rule:</span> container_syscall</div><div class="line"><span class="attr">  desc:</span> Capture syscalls for any docker container</div><div class="line"><span class="attr">  priority:</span> WARNING</div><div class="line"><span class="attr">  condition:</span> container.id != host and syscall.type exists</div><div class="line"><span class="attr">  output:</span> <span class="string">"%container.id:%syscall.type"</span></div></pre></td></tr></table></figure></p>
@@ -155,83 +98,21 @@ ga('send', 'pageview');
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">falco2seccomp -log events.log -container-id 7a68a113b2a4</div><div class="line">&#123;</div><div class="line">    &quot;defaultAction&quot;: &quot;SCMP_ACT_ERRNO&quot;,</div><div class="line">    &quot;architectures&quot;: [</div><div class="line">        &quot;SCMP_ARCH_X86_64&quot;,</div><div class="line">        &quot;SCMP_ARCH_X86&quot;</div><div class="line">    ],</div><div class="line">    &quot;syscalls&quot;: [</div><div class="line">        &#123;</div><div class="line">            &quot;name&quot;: &quot;set_robust_list&quot;,</div><div class="line">            &quot;action&quot;: &quot;SCMP_ACT_ALLOW&quot;,</div><div class="line">            &quot;args&quot;: []</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            &quot;name&quot;: &quot;gettid&quot;,</div><div class="line">            &quot;action&quot;: &quot;SCMP_ACT_ALLOW&quot;,</div><div class="line">            &quot;args&quot;: []</div><div class="line">        &#125;,</div><div class="line">        ...</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>This is a ready to use out of the box seccomp profile for our nginx container, limited to just the syscalls we actually saw the container using. Instead of blacklisting 40 syscalls, we’re only allowing 41. Again, awesome.</p>
 <p>So how can you use this in the real world? One thought would be to integrate it into a CI/CD pipeline. If your builds are being done in a Docker container your tests should be exercising your code enough to generate the full list of syscalls required. boom.</p>
-
-      
-
-      
-
-    </div>
-  </div>
-  
-</article>
-
-
-
-  
-  
-</section>
-        <aside id="sidebar">
-  <nav class="menus">
-  	<ul>
-  		<li><a title="home" href="/"><i class="icon icon-home"></i></a></li>
-  		
-			<li><a title="archives" href="/archives"><i class="icon icon-archive"></i></a></li>
-  		
-  		
-			<li><a title="tags" href="/tags"><i class="icon icon-tag"></i></a></li>
-  		
-  		<li><a title="Github" href="https://github.com/nevins-b"><i class="icon icon-git"></i></a></li>
-      <li><a title="about" href="/about"><i class="icon icon-about"></i></a></li>
-  	</ul>
-  </nav>
-  <a id="go-top" title="go to top" href="#"><i class="icon icon-up"></i></a>
-</aside>
-
-      </div>
-      <footer id="footer">
-  
-	<div id="footer-info" class="inner">
-	  &copy; 2017
-	</div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="/tags" class="mobile-nav-link">Tag</a>
-  
-    <a href="/about" class="mobile-nav-link">About</a>
-  
-    <a href="https://github.com/nevins-b" class="mobile-nav-link">Github</a>
-  
-</nav>
+]]></content>
     
-<script>
-  var disqus_shortname = 'http206';
+    <summary type="html">
+    
+      &lt;p&gt;I’ve been looking for an excuse to use &lt;a href=&quot;http://www.sysdig.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Sysdig&lt;/a&gt; since I first heard abo
+    
+    </summary>
+    
+    
+      <category term="security" scheme="https://http206.com/tags/security/"/>
+    
+      <category term="Docker" scheme="https://http206.com/tags/Docker/"/>
+    
+      <category term="Falco" scheme="https://http206.com/tags/Falco/"/>
+    
+  </entry>
   
-  (function(){
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-  </div>
-</body>
-</html>
+</feed>
